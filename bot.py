@@ -2,8 +2,8 @@ from telegram.ext import Updater
 from telegram.ext import CommandHandler
 from telegram.ext import MessageHandler, Filters,PicklePersistence
 import logging
+from tokens import TOKEN
 
-TOKEN = '1038370736:AAHcuYxCbRHbdKzhy-9MzTwyUcht62YeVOI'
 
 humoresPersistence = PicklePersistence(filename='humores')
 
