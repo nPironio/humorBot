@@ -6,10 +6,20 @@ def contarUltimaSemana(l): #Toma una lista de datetimes ordenada mas nuevo a mas
 	#TODO: implementarlo con una busqueda binaria por fecha
 	hoy=dt.datetime.today()
 	semana = dt.timedelta(weeks=1)
-	idx=0
-	while(idx < len(l) and hoy-l[idx]<=semana):
-		idx+=1
-	return idx, (idx>0)
+	
+	izq=0
+	der=len(l)
+	medio=(izq+der)//2
+	print("izq:",izq, " med:",medio," der: ",der)
+	while(izq!=medio):
+		if(hoy-l[medio]>=semana):
+			izq = medio
+		else:
+			derecha = medio
+		medio=(izq+der)//2
+		print("izq:",izq, " med:",medio," der: ",der)
+	
+	return medio, (medio>0)
 
 def actualizarBotones(humores):
 	#Considerar hacer una implementacion mas eficiente, pero hay que guardar info extra
