@@ -7,6 +7,7 @@ from utils import *
 
 
 def resumenHumores(update, context):
+	print(context.user_data.keys())
 	response = "\n".join([k + ": " + str(len(context.user_data[k])) for k in context.user_data.keys()])
 	if response == "": 
 		context.bot.send_message(chat_id=update.effective_chat.id, text="No hay humores registrados")

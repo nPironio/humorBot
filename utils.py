@@ -12,6 +12,7 @@ def contarUltimaSemana(l): #Toma una lista de datetimes ordenada mas nuevo a mas
 	return idx, (idx>0)
 
 def actualizarBotones(humores):
+	#Considerar hacer una implementacion mas eficiente, pero hay que guardar info extra
 	registrados = list(humores.keys())
 	if len(registrados)==0:
 		return ReplyKeyboardRemove()
