@@ -1,16 +1,19 @@
+import datetime as dt
+
 from mensajes import *
 from utils import *
+
 	
 def registrarHumor(update, context):
 	if update.message.text[0]=='/':	
 		context.bot.send_message(chat_id=update.effective_chat.id, text="Disculpa, ese comando no existe")
 	else:
 		humor = update.message.text
-		date = update.message.date
+		msg_datetime = update.message.date
+		date=dt.date(msg_datetime.year,  msg_datetime.month, msg_datetime.day)
 		if humor not in context.user_data.keys():
 			context.user_data[humor]=[]
 		context.user_data[humor].insert(0,date)
-
 		markup = actualizarBotones(context.user_data)
 		context.bot.send_message(chat_id=update.effective_chat.id, text="Registré tu humor", reply_markup=markup)
 
